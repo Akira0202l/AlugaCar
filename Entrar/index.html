@@ -1,82 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Definição do conjunto de caracteres da página -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Define a compatibilidade com versões mais antigas do Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <!-- Define a responsividade da página para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login.css"> 
+    <link rel="stylesheet" href="Login.css">
+    <!-- Título da página -->
     <title>Tela de login</title>
 
     <header>
+        <!-- Link para outra página (Trabalha Conosco?) -->
         <a href="./EntrarADM/index.html">
-            <button>Colaboradores</button>
+            <button>Trabalha Conosco?</button>
         </a>
-        </header>
+    </header>
 
-<style>
-
-body{       
-    font-family: Arial, Helvetica, sans-serif;
-background-image: linear-gradient(45deg, #0c0c0c, #3a415a);
-
-        }
-        
-        div{
-        background-color:rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%, -50%);
-        padding: 80px;
-        border-radius: 15px;
-        color:#ea7070;
-        }
-        
-        input{
-        padding: 15px;
-        border: none;
-        outline: none;
-        font-size: 15px;
-        }   
-        
-        .inputSubmit{
-            background-color: transparent; /* Altera a cor de fundo ao passar o mouse */
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 10px;
-            color: white;
-            font-size: 15px;
-            background-color: transparent;
-            border: 1px solid #fff;
-            
-        }
-        
-        .inputSubmit:hover{
-            background-color: #ea7070;
-            cursor: pointer;
-            padding: .7rem;
-            font-size: .2rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: .4s;   
-                  
-        }
-</style>
 
 </head>
 <body> 
 
    <div> 
+    <!-- Título do formulário -->
     <h1>Login</h1>
+    
+    <!-- Formulário de login -->
     <form action="Test.php" method="POST">
-    <input type="text" name="CPF" placeholder="CPF">
-    <br><br>
-    <input type="password" name="Senha" placeholder="Senha">
-    <br><br>
-    <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+        <!-- Campo de entrada para CPF -->
+        <input type="text" name="CPF" placeholder="CPF">
+        <br><br>
+        
+        <!-- Campo de entrada para senha -->
+        <input type="password" name="Senha" placeholder="Senha">
+        <br><br>
+        
+        <!-- Botão de envio -->
+        <input class="inputSubmit" type="submit" name="submit" value="Enviar">
     </form>
    </div>       
 </body>
-
 
 </html>

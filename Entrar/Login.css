@@ -1,0 +1,94 @@
+ /* Estiliza o corpo da página */
+ body{       
+    font-family: Arial, Helvetica, sans-serif; /* Fonte utilizada */
+    background-image: linear-gradient(45deg, #0c0c0c, #3a415a); /* Gradiente de fundo */
+}
+
+/* Estiliza o contêiner principal do formulário de login */
+div {
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo semi-transparente */
+    position: absolute; /* Posição absoluta na tela */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para garantir centralização precisa */
+    padding: 80px; /* Espaçamento interno */
+    border-radius: 15px; /* Bordas arredondadas */
+    font-size: 15px; /* Tamanho da fonte */
+    color: #ea7070; /* Cor do texto */
+}
+
+/* Estiliza os campos de entrada (inputs) */
+input {
+    padding: 15px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove a borda de foco */
+    font-size: 15px; /* Tamanho da fonte */
+}   
+
+/* Estiliza o botão de envio */
+.inputSubmit {
+    background-color: transparent; /* Fundo transparente */
+    border: none; /* Remove borda */
+    padding: 15px; /* Espaçamento interno */
+    width: 100%; /* Largura de 100% do contêiner */
+    border-radius: 10px; /* Bordas arredondadas */
+    color: white; /* Cor do texto */
+    font-size: 15px; /* Tamanho da fonte */
+    border: 1px solid #fff; /* Borda branca */
+}
+
+/* Estiliza o botão de envio quando o mouse passa por cima (hover) */
+.inputSubmit:hover {
+    background-color: #ea7070; /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Altera o cursor para o formato de ponteiro */
+    padding: .7rem; /* Ajusta o espaçamento interno */
+    font-size: .2rem; /* Tamanho da fonte (pode ser ajustado para evitar fonte muito pequena) */
+    border-radius: 6px; /* Arredonda as bordas */
+    transition: .4s; /* Transição suave para mudanças */
+}
+
+
+/* Estilização do botão Trabalha Conosco */
+
+
+header a {
+background-color: transparent; /* Fundo transparente */
+    border: none; /* Remove borda */
+    padding: 15px; /* Espaçamento interno */
+    width: 100%; /* Largura de 100% do contêiner */
+    border-radius: 10px; /* Bordas arredondadas */
+    color: white; /* Cor do texto */
+    font-size: 15px; /* Tamanho da fonte */
+    border: 1px solid #fff; /* Borda branca */
+}
+
+header button {
+background-color: #000000; /* Cor de fundo do botão */
+color: white; /* Cor do texto */
+border: none; /* Remove a borda */
+padding: 12px 24px; /* Espaçamento interno */
+font-size: 15px; /* Tamanho da fonte */
+font-weight: bold; /* Deixa o texto em negrito */
+border-radius: 8px; /* Bordas arredondadas */
+cursor: pointer; /* Muda o cursor para ponteiro ao passar o mouse */
+transition: 0.3s ease-in-out; /* Transição suave */
+}
+
+/* Efeito hover (quando o usuário passa o mouse sobre o botão) */
+header button:hover {
+background-color: #ea7070; /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Altera o cursor para o formato de ponteiro */
+    padding: .7rem; /* Ajusta o espaçamento interno */
+    border-radius: 6px; /* Arredonda as bordas */
+    transition: .4s; /* Transição suave para mudanças */
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+header button {
+width: 80%; /* Faz o botão ocupar mais espaço em telas menores */
+padding: 14px 0; /* Ajuste de padding */
+font-size: 14px; /* Diminui um pouco o tamanho da fonte */
+}
+}
+

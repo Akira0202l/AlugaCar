@@ -1,20 +1,24 @@
+/* Importa a fonte Lato do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lato');
 
+/* Definição de variáveis de cores */
 :root{
     --white: #fff;
-    --dark1: #0c0c0c; /*fundo pagina*/
-    --dark2: #3a415a; /*Experiencias*/
-    --dark5: #cbdad5; /*Letra Experiencia, Quem eu Sou?, Meus Projetos*/
-    --dark4: #89a7b1; /*Letras Experiencia Baixo*/
-    --dark3: #815656; /*Letras Baixo*/
-    --cyan1: #ea7070; /*Letras Negrito*/
+    --dark1: #0c0c0c; /* Fundo da página */
+    --dark2: #3a415a; /* Fundo da seção de experiências */
+    --dark5: #cbdad5; /* Cor do texto para "Experiência", "Quem eu sou?", "Meus Projetos" */
+    --dark4: #89a7b1; /* Cor do texto em seções de experiência (parte inferior) */
+    --dark3: #815656; /* Cor de letras na parte inferior */
+    --red:   #ea7070; /* Cor das letras em negrito */
 }
 
+/* Reset de margem e padding para todos os elementos */
 *{
     margin: 0;
     padding: 0;
 }
 
+/* Personalização da barra de rolagem */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -31,10 +35,12 @@
     background: var(--dark4);
 }
 
+/* Comportamento suave ao rolar a página */
 html {
     scroll-behavior: smooth;
 }
 
+/* Estilização do corpo da página */
 body{
     background-color: var(--dark1);
     background-size: 400%;
@@ -42,6 +48,7 @@ body{
     font-family: 'Lato';
 }
 
+/* Estilização do cabeçalho */
 header{
     display: flex;
     justify-content: space-around;
@@ -53,7 +60,7 @@ header{
     min-height: 50px;
 }
 
-
+/* Estilização do logo no cabeçalho */
 .box-img-header{
     height: 100%;
 }
@@ -63,6 +70,7 @@ header{
     max-height: 60px;
 }
 
+/* Estilização da navegação */
 nav{
     display: flex;
     gap: 2rem;
@@ -82,6 +90,7 @@ nav{
     transition: .4s;
 }
 
+/* Estilização dos botões e links de ação */
 .box-btn-actions{
     display: flex;
     gap: 1rem;
@@ -91,7 +100,7 @@ nav{
     flex-direction: column;
 }
 
-:is(button,.link-action,){
+:is(button,.link-action){
     padding: .6rem;
     font-size: .9rem;
     border-radius: 6px;
@@ -105,7 +114,6 @@ nav{
     border-radius: 60px;
     cursor: pointer;
     transition: .4s;
-    
 }
 
 .btn-action{
@@ -114,42 +122,12 @@ nav{
     color: var(--white);
 }
 
- 
-    :is(button,.btn-action){
-        padding: .6rem;
-        font-size: .9rem;
-        border-radius: 60px;
-        cursor: pointer;
-        transition: .4s;
-        
-    }
-    
-    .btn-action{
-        background-color: transparent;
-        border: 1px solid var(--white);
-        color: var(--white);
-    }
-    
-    
-    .btn-action:hover{
-        background-color:  var(--dark3);
-        border: 1px solid var(--dark3);
-        
-    }
-    
-
-.link-action,.btn-action {
-    text-decoration: none;
-    width: 100px;
-    padding: .6rem;
-    font-size: .9rem;
-    text-align: center;
-    cursor: pointer;
-    transition: .4s;
+.btn-action:hover{
+    background-color:  var(--dark3);
+    border: 1px solid var(--dark3);
 }
 
-
-
+/* Estilização da seção principal */
 main{
     display: flex;
     flex-direction: column;
@@ -176,8 +154,7 @@ section{
     min-width: 300px;
 }
 
-
-
+/* Estilização de títulos */
 h1{
     font-size: 4rem;
     letter-spacing: 8px;
@@ -185,7 +162,7 @@ h1{
 }
 
 strong{
-    color: var(--cyan1);
+    color: var(--red);
 }
 
 .first-section p{
@@ -196,6 +173,7 @@ strong{
     width: 200px;
 }
 
+/* Estilização da imagem principal */
 .box-img-main{
     max-width: 450px;
     padding: 1rem;
@@ -206,6 +184,7 @@ strong{
     border-radius: 50%;
 }
 
+/* Seções com fundo degradê */
 :is(.second-section, .fourth-section){
     background-image: linear-gradient(45deg, #0c0c0c, #3a415a);
     display: flex;
@@ -214,9 +193,13 @@ strong{
     align-items: center;
 }
 
+/* Estilização de títulos de seção */
 .title{
     color: var(--dark5);
 }
+
+
+
 
 .second-section div{
     display: flex;
@@ -238,6 +221,7 @@ strong{
     cursor: default;
 }
 
+/* Estilização da terceira seção */
 .third-section{
     display: flex;
     flex-direction: column;
@@ -257,12 +241,12 @@ strong{
     border-radius: 10px;
 }
 
-
 .third-section > div p{
     max-width: 500px;
     color: var(--white);
 }
 
+/* Lista de projetos */
 #my-projects-list{
     display: flex;
     gap: 2rem;
@@ -282,10 +266,12 @@ strong{
     color: var(--dark4);
 }
 
+/* Sombreamento para imagens */
 :is(.img-profile,.img-who-am-i){
-    box-shadow: 2px 1px 1px 1px var(--cyan1);
+    box-shadow: 2px 1px 1px 1px var(--red);
 }
 
+/* Estilização do rodapé */
 footer{
     padding: 4rem;
     display: flex;
@@ -298,4 +284,58 @@ footer > div{
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+}
+
+
+/* Estilos gerais do menu */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s ease, transform 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.nav-links:hover {
+    color: #f0a500;
+    transform: scale(1.1);
+}
+
+/* Botão hambúrguer para telas menores */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsivo - Ocultar menu e ativar botão em telas pequenas */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav.show {
+        display: flex;
+    }
 }
