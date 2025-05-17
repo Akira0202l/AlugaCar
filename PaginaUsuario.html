@@ -222,9 +222,11 @@ $logado = $_SESSION['CPF'];
           erroDatas.style.display = 'block';
         } else {
           erroDatas.style.display = 'none';
-          alert('Reserva enviada com sucesso!');
-          // Aqui você pode redirecionar ou enviar via AJAX
-        }
+alert('Reserva enviada com sucesso!');
+setTimeout(() => {
+  window.location.href = 'index.html';
+}, 2000);
+
       });
     });
 
