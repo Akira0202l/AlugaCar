@@ -213,21 +213,21 @@ $logado = $_SESSION['CPF'];
       });
   
       // Validação ao enviar
-form.addEventListener('submit', function(event) {
-  const dataRetirada = new Date(retirada.value);
-  const dataDevolucao = new Date(devolucao.value);
-
-  if (dataDevolucao <= dataRetirada) {
-    event.preventDefault();
-    erroDatas.style.display = 'block';
-  } else {
+      form.addEventListener('submit', function(event) {
+        const dataRetirada = new Date(retirada.value);
+        const dataDevolucao = new Date(devolucao.value);
+  
+        if (dataDevolucao <= dataRetirada) {
+          event.preventDefault();
+          erroDatas.style.display = 'block';
+        } else {
     event.preventDefault(); // para evitar recarregar a página
     erroDatas.style.display = 'none';
     alert('Reserva enviada com sucesso!');
     window.location.href = 'index.html'; // redireciona para index.html
   }
-});
-
+      }); 
+    });
 
           // Exibir formulário de reserva após escolher um carro
       const botoesCarros = document.querySelectorAll('.selecionar-carro');
