@@ -102,7 +102,7 @@ $logado = $_SESSION['CPF'];
     <div class="box-img-header">
         <img class="img-logo" src="./images/logo.png" alt="Logo AlugaCar">
     </div>
-        <nav
+        <nav>
          <a href="#inicio" class="nav-links" style="margin: 0 15px;">Início</a>
          <a href="#sobre" class="nav-links" style="margin: 0 15px;">Sobre</a>
          <a href="#unidades" class="nav-links" style="margin: 0 15px;">Unidades</a>
@@ -112,29 +112,39 @@ $logado = $_SESSION['CPF'];
             <a href="Login.html" class="btn-action link-action">Entrar</a>
             <a href="Cadastro.html" class="btn-action link-action">Cadastrar</a>
               </div>    
+              <style>
+  .busca {
+    display: none;
+  }
+</style>
+
 </header>
 
   <section class="carros-populares">
     <div class="container">
       <h3>Carros populares</h3>
-      <div class="cards">
-        <div class="card">
-          <img src="./images/carro1.jpg" alt="Fiat Cronos">
-          <h4>Fiat Cronos</h4>
-          <p>A partir de R$ 89/dia</p>
-        </div>
-        <div class="card">
-          <img src="./images/carro2.jpg" alt="Hyundai Creta">
-          <h4>Hyundai Creta</h4>
-          <p>A partir de R$ 129/dia</p>
-        </div>
-      </div>
+<div class="cards">
+  <div class="card">
+    <img src="./images/carro1.jpg" alt="Fiat Cronos">
+    <h4>Fiat Cronos</h4>
+    <p>A partir de R$ 89/dia</p>
+    <button class="selecionar-carro" data-carro="Fiat Cronos">Escolher</button>
+  </div>
+  <div class="card">
+    <img src="./images/carro2.jpg" alt="Hyundai Creta">
+    <h4>Hyundai Creta</h4>
+    <p>A partir de R$ 129/dia</p>
+    <button class="selecionar-carro" data-carro="Hyundai Creta">Escolher</button>
+  </div>
+</div>
     </div>
   </section>
   
   <section class="busca">
     <div class="container">
       <h3>Faça sua reserva</h3>
+      <p id="carroSelecionado" style="font-weight: bold;"></p>
+
       <form id="formReserva">
         <label for="retirada">Retirada:</label>
         <input 
@@ -217,6 +227,35 @@ $logado = $_SESSION['CPF'];
         }
       });
     });
+
+          // Exibir formulário de reserva após escolher um carro
+      const botoesCarros = document.querySelectorAll('.selecionar-carro');
+      const secaoReserva = document.querySelector('.busca');
+
+botoesCarros.forEach(botao => {
+  botao.addEventListener('click', () => {
+    const nomeCarro = botao.getAttribute('data-carro');
+    const todosOsCards = document.querySelectorAll('.card');
+
+    // Esconde todos os carros
+    todosOsCards.forEach(card => {
+      card.style.display = 'none';
+    });
+
+    // Mostra apenas o card do carro selecionado
+    const cardSelecionado = botao.closest('.card');
+    cardSelecionado.style.display = 'block';
+
+    // Exibe a seção de reserva
+    secaoReserva.style.display = 'block';
+
+    // Mostra o nome do carro escolhido na seção de reserva
+    const nomeCarroSelecionado = document.getElementById('carroSelecionado');
+    nomeCarroSelecionado.textContent = `Carro selecionado: ${nomeCarro}`;
+  });
+});
+
+
   </script>
   
 
@@ -256,5 +295,7 @@ $logado = $_SESSION['CPF'];
         <a href="LoginADM.html" class="btn-action link-action">Trabalha Conosco?</a>
     </div>
     </footer>
+
+    
 </body>
 </html>
