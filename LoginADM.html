@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Garante compatibilidade com o Internet Explorer -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade para dispositivos móveis -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="theme-style" rel="stylesheet" href="LoginADMD.css">
-    <title>Tela de login</title> <!-- Título da página -->
-
+    <title>Tela de login</title>
 </head>
-<body> 
+<body>
 
-   <div> 
-    <h1>Login</h1>
-    <form action="TestADM.php" method="POST">
-    <input type="text" name="CPF" placeholder="CPF">
-    <br><br>
-    <input type="password" name="Senha" placeholder="Senha">
-    <br><br>
-    <input class="inputSubmit" type="submit" name="submit" value="Enviar">
-    </form>
-   </div>       
+    <div>
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" name="CPF" id="cpf" placeholder="CPF" required>
+            <br><br>
+            <input type="password" name="Senha" id="senha" placeholder="Senha" required>
+            <br><br>
+            <input class="inputSubmit" type="submit" value="Enviar">
+        </form>
+        <p id="mensagem" style="color: red;"></p>
+    </div>      
 </body>
-<!-- Botão para alternar o tema do site (claro/escuro) -->
+<!-- Botão para alternar o t    ema do site (claro/escuro) -->
 <button onclick="toggleTheme()" id="toggle-btn" title="Trocar tema">
     <!-- Ícone de Sol (tema claro) -->
     <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,39 @@
     </svg>
 </button>
 
-<script>
+    <script>
+const usuarioADM = {
+    cpf: '123',
+    senha: '321'
+};
+function verificarLogin(cpfDigitado, senhaDigitada) {
+    if (cpfDigitado === usuarioADM.cpf && senhaDigitada === usuarioADM.senha) {
+        alert("Login bem-sucedido!");
+        // Pode redirecionar ou exibir painel ADM
+    } else {
+        alert("CPF ou senha inválidos.");
+    }
+}
+        // Verificação de login sem localStorage
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const cpfInput = document.getElementById('cpf').value;
+            const senhaInput = document.getElementById('senha').value;
+            const msg = document.getElementById('mensagem');
+
+            if (cpfInput === usuarioADM.cpf && senhaInput === usuarioADM.senha) {
+                msg.style.color = 'green';
+                msg.textContent = 'Login bem-sucedido! Redirecionando...';
+                setTimeout(() => {
+                    window.location.href = "PaginaADM.html"; 
+                }, 1500);
+            } else {
+                msg.style.color = 'red';
+                msg.textContent = 'CPF ou senha incorretos!';
+            }
+        });
+
+
     // Função para alternar o tema
     function toggleTheme() {
         const link = document.getElementById('theme-style');
