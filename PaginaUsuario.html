@@ -221,9 +221,10 @@ form.addEventListener('submit', function(event) {
     event.preventDefault();
     erroDatas.style.display = 'block';
   } else {
+    event.preventDefault(); // para evitar recarregar a página
     erroDatas.style.display = 'none';
     alert('Reserva enviada com sucesso!');
-    window.location.href = 'index.html';  // redireciona após alerta
+    window.location.href = 'index.html'; // redireciona para index.html
   }
 });
 
