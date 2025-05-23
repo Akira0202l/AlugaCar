@@ -1,16 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['CPF']) || !isset($_SESSION['Senha'])) {
-    unset($_SESSION['CPF']);
-    unset($_SESSION['Senha']);
-    header('Location: Login.php');
-    exit();
-}
-
-$logado = $_SESSION['CPF'];
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,16 +5,10 @@ $logado = $_SESSION['CPF'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AlugaCar | AC</title>
-
-  <!-- Estilo do tema -->
   <link id="theme-style" rel="stylesheet" href="SiteD.css">
-
-  <!-- Estilo do carrossel -->
   <link rel="stylesheet" href="carousel.css">
 </head>
 <body>
-
-  <!-- Botão para alternar o tema do site -->
   <button onclick="toggleTheme()" id="toggle-btn" title="Trocar tema">
       <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -49,8 +30,62 @@ $logado = $_SESSION['CPF'];
           </g>
       </svg>
   </button>
+  <header>
+    <div class="box-img-header">
+        <img class="img-logo" src="./images/logo.png" alt="Logo AlugaCar">
+    </div>
+        <nav>
+         <a href="#inicio" class="nav-links" style="margin: 0 15px;">Início</a>
+         <a href="#sobre" class="nav-links" style="margin: 0 15px;">Sobre</a>
+         <a href="#unidades" class="nav-links" style="margin: 0 15px;">Unidades</a>
+         <a href="#contato" class="nav-links" style="margin: 0 15px;">Contato</a>
+        </nav>
+             <div class="box-btn-actions">
+            <a href="Login.html" class="btn-action link-action">Entrar</a>
+            <a href="Cadastro.html" class="btn-action link-action">Cadastrar</a>
+              </div>    
+              <style>
+  .busca {
+    display: none;
+  }
+</style>
+</header>
+<section class="carros-populares-e-reserva">
+  <div class="container" style="display: flex; gap: 20px; align-items: flex-start;">
+    <div class="carros-populares" style="flex: 1;">
+      <h3>Carros populares</h3>
+      <div class="cards">
+        <div class="card">
+          <img src="./images/carro1.jpg" alt="Fiat Cronos">
+          <h4>Fiat Cronos</h4>
+          <p>A partir de R$ 89/dia</p>
+          <button class="selecionar-carro" data-carro="Fiat Cronos">Escolher</button>
+        </div>
+        <div class="card">
+          <img src="./images/carro2.jpg" alt="Hyundai Creta">
+          <h4>Hyundai Creta</h4>
+          <p>A partir de R$ 129/dia</p>
+          <button class="selecionar-carro" data-carro="Hyundai Creta">Escolher</button>
+        </div>
+      </div>
+    </div>
+    <section class="busca" style="flex: 1; display: none; border: 1px solid #ccc; padding: 15px; border-radius: 8px;">
+      <h3>Faça sua reserva</h3>
+      <p id="carroSelecionado" style="font-weight: bold;"></p>
+      <form id="formReserva">
+        <label for="retirada">Retirada:</label>
+        <input type="date" id="retirada" name="retirada" required>
+        <label for="devolucao">Devolução:</label>
+        <input type="date" id="devolucao" name="devolucao" required>
+        <label for="local">Local:</label>
+        <input type="text" id="local" name="local" placeholder="Cidade ou aeroporto" required>
+        <div class="erro" id="erroDatas" style="display:none; color:red;">A devolução deve ser após a retirada.</div>
+        <button type="submit">Buscar Carros</button>
+      </form>
+    </section>
+  </div>
+</section>
 
-  <!-- Script para alternar o tema -->
   <script>
     function toggleTheme() {
       const link = document.getElementById('theme-style');
@@ -95,91 +130,7 @@ $logado = $_SESSION['CPF'];
         `;
       }
     }
-  </script>
 
-<header>
-
-    <div class="box-img-header">
-        <img class="img-logo" src="./images/logo.png" alt="Logo AlugaCar">
-    </div>
-        <nav>
-         <a href="#inicio" class="nav-links" style="margin: 0 15px;">Início</a>
-         <a href="#sobre" class="nav-links" style="margin: 0 15px;">Sobre</a>
-         <a href="#unidades" class="nav-links" style="margin: 0 15px;">Unidades</a>
-         <a href="#contato" class="nav-links" style="margin: 0 15px;">Contato</a>
-        </nav>
-             <div class="box-btn-actions">
-            <a href="Login.html" class="btn-action link-action">Entrar</a>
-            <a href="Cadastro.html" class="btn-action link-action">Cadastrar</a>
-              </div>    
-              <style>
-  .busca {
-    display: none;
-  }
-</style>
-
-</header>
-
-  <section class="carros-populares">
-    <div class="container">
-      <h3>Carros populares</h3>
-<div class="cards">
-  <div class="card">
-    <img src="./images/carro1.jpg" alt="Fiat Cronos">
-    <h4>Fiat Cronos</h4>
-    <p>A partir de R$ 89/dia</p>
-    <button class="selecionar-carro" data-carro="Fiat Cronos">Escolher</button>
-  </div>
-  <div class="card">
-    <img src="./images/carro2.jpg" alt="Hyundai Creta">
-    <h4>Hyundai Creta</h4>
-    <p>A partir de R$ 129/dia</p>
-    <button class="selecionar-carro" data-carro="Hyundai Creta">Escolher</button>
-  </div>
-</div>
-    </div>
-  </section>
-  
-  <section class="busca">
-    <div class="container">
-      <h3>Faça sua reserva</h3>
-      <p id="carroSelecionado" style="font-weight: bold;"></p>
-
-      <form id="formReserva">
-        <label for="retirada">Retirada:</label>
-        <input 
-          type="date" 
-          id="retirada" 
-          name="retirada" 
-          required
-        >
-  
-        <label for="devolucao">Devolução:</label>
-        <input 
-          type="date" 
-          id="devolucao" 
-          name="devolucao" 
-          required
-        >
-  
-        <label for="local">Local:</label>
-        <input 
-          type="text" 
-          id="local" 
-          name="local" 
-          placeholder="Cidade ou aeroporto" 
-          required
-        >
-  
-        <div class="erro" id="erroDatas">A devolução deve ser após a retirada.</div>
-  
-        <button type="submit">Buscar Carros</button>
-      </form>
-    </div>
-  </section>
-  
-  <script>
-    // Função auxiliar para formatar datas como yyyy-mm-dd
     function formatDate(date) {
       return date.toISOString().split('T')[0];
     }
@@ -193,26 +144,18 @@ $logado = $_SESSION['CPF'];
       const devolucao = document.getElementById('devolucao');
       const erroDatas = document.getElementById('erroDatas');
       const form = document.getElementById('formReserva');
-  
-      // Configurar datas padrão e mínimas
       retirada.value = formatDate(hoje);
       retirada.min = formatDate(hoje);
-  
       devolucao.value = formatDate(amanha);
       devolucao.min = formatDate(hoje);
-  
       retirada.addEventListener('change', () => {
         const novaRetirada = new Date(retirada.value);
         novaRetirada.setDate(novaRetirada.getDate() + 1);
-  
         devolucao.min = formatDate(novaRetirada);
-  
         if (new Date(devolucao.value) < novaRetirada) {
           devolucao.value = formatDate(novaRetirada);
         }
       });
-  
-      // Validação ao enviar
       form.addEventListener('submit', function(event) {
         const dataRetirada = new Date(retirada.value);
         const dataDevolucao = new Date(devolucao.value);
@@ -221,52 +164,38 @@ $logado = $_SESSION['CPF'];
           event.preventDefault();
           erroDatas.style.display = 'block';
         } else {
-    event.preventDefault(); // para evitar recarregar a página
+    event.preventDefault();
     erroDatas.style.display = 'none';
     alert('Reserva enviada com sucesso!');
-    window.location.href = 'index.html'; // redireciona para index.html
+    window.location.href = 'index.html'; 
   }
       }); 
     });
 
-          // Exibir formulário de reserva após escolher um carro
-      const botoesCarros = document.querySelectorAll('.selecionar-carro');
-      const secaoReserva = document.querySelector('.busca');
-
+const botoesCarros = document.querySelectorAll('.selecionar-carro');
+const secaoReserva = document.querySelector('.busca');
 botoesCarros.forEach(botao => {
   botao.addEventListener('click', () => {
     const nomeCarro = botao.getAttribute('data-carro');
     const todosOsCards = document.querySelectorAll('.card');
-
-    // Esconde todos os carros
     todosOsCards.forEach(card => {
       card.style.display = 'none';
     });
 
-    // Mostra apenas o card do carro selecionado
     const cardSelecionado = botao.closest('.card');
     cardSelecionado.style.display = 'block';
-
-    // Exibe a seção de reserva
     secaoReserva.style.display = 'block';
-
-    // Mostra o nome do carro escolhido na seção de reserva
     const nomeCarroSelecionado = document.getElementById('carroSelecionado');
     nomeCarroSelecionado.textContent = `Carro selecionado: ${nomeCarro}`;
   });
 });
 
-
   </script>
-  
-
-<!-- Quarta seção (projetos) -->
 <section id="my-projects" class="fourth-section">
     <h2 class="title">Nossos Projetos</h2>
     <img src="https://i.gifer.com/YlWC.gif" alt="Carregando..." width="100">
     <div id="projetos"></div>
 </section>
-
   <footer id="contact">
     <h2 class="title">Contato</h2>      
     <div>
@@ -291,12 +220,9 @@ botoesCarros.forEach(botao => {
             </svg>
         </a>
         </div>
-
         <div class="box-btn-actions">
         <a href="LoginADM.html" class="btn-action link-action">Trabalha Conosco?</a>
     </div>
     </footer>
-
-    
 </body>
 </html>

@@ -5,26 +5,23 @@ body {
     padding: 0;
 }
 
-/* Container centralizado com largura máxima */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* Navbar centralizada */
 .navbar {
     background: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
     color: #333;
     padding: 1rem;
     display: flex;
-    justify-content: center; /* centraliza horizontalmente */
+    justify-content: center;
     align-items: center;
-    gap: 2rem; /* espaçamento entre itens */
+    gap: 2rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar brand centralizado */
 .navbar-brand {
     color: white !important;
     font-weight: 700;
@@ -32,10 +29,9 @@ body {
     text-decoration: none;
 }
 
-/* Header centralizado */
 header {
     display: flex;
-    justify-content: center; /* centraliza */
+    justify-content: center;
     align-items: center;
     gap: 40rem;
     flex-wrap: wrap;
@@ -44,19 +40,16 @@ header {
     min-height: 10px;
 }
 
-/* Logo no cabeçalho (centralizado via flex do header) */
 .box-img-header {
     height: 10%;
 }
 
-/* Título centralizado */
 h1 {
     text-align: center;
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
-/* Busca centralizada */
 .box-search {
     display: flex;
     justify-content: center;
@@ -64,7 +57,6 @@ h1 {
     margin-bottom: 2rem;
 }
 
-/* Input busca */
 .box-search input[type="search"] {
     padding: 10px 15px;
     border: 1px solid white;
@@ -85,7 +77,6 @@ h1 {
     outline: none;
 }
 
-/* Botão da busca */
 .box-search button {
     background-color: rgb(20, 147, 220);
     border: none;
@@ -104,7 +95,6 @@ h1 {
     background-color: rgb(17, 54, 71);
 }
 
-/* Tabela centralizada */
 .table {
     width: 100%;
     max-width: 1000px;
@@ -133,7 +123,6 @@ h1 {
     cursor: pointer;
 }
 
-/* Botões */
 .btn-primary, .btn-danger {
     font-size: 0.85rem;
     padding: 4px 8px;
@@ -147,15 +136,14 @@ h1 {
     justify-content: center;
 }
 
-/* Ações e botões */
 .box-btn-actions {
     display: flex;
     gap: 1rem;
-    
 }
+
 .btn-action {
     background-color: transparent;
-    border: 2px solid #ffffff; /* borda branca */
+    border: 2px solid #ffffff;
     color: #ffffff;
     border-radius: 60px;
     padding: 0.6rem 1rem;
@@ -204,7 +192,6 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
     .box-search {
         flex-direction: column;
@@ -219,11 +206,12 @@ h1 {
         font-size: 0.9rem;
     }
 }
+
 #toggle-btn {
     position: fixed;
-    top: 10px;    /* distância do topo */
-    left: 10px;  /* distância da direita */
-    z-index: 1000; /* para ficar acima dos outros elementos */
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
     background: transparent;
     border: none;
     cursor: pointer;

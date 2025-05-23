@@ -8,7 +8,6 @@
     <title>Tela de login</title>
 </head>
 <body>
-
     <div>
         <h1>Login</h1>
         <form id="loginForm">
@@ -21,9 +20,7 @@
         <p id="mensagem" style="color: red;"></p>
     </div>      
 </body>
-<!-- Botão para alternar o t    ema do site (claro/escuro) -->
 <button onclick="toggleTheme()" id="toggle-btn" title="Trocar tema">
-    <!-- Ícone de Sol (tema claro) -->
     <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
@@ -44,7 +41,6 @@
         </g>
     </svg>
 </button>
-
     <script>
 const usuarioADM = {
     cpf: '123',
@@ -53,18 +49,15 @@ const usuarioADM = {
 function verificarLogin(cpfDigitado, senhaDigitada) {
     if (cpfDigitado === usuarioADM.cpf && senhaDigitada === usuarioADM.senha) {
         alert("Login bem-sucedido!");
-        // Pode redirecionar ou exibir painel ADM
     } else {
         alert("CPF ou senha inválidos.");
     }
 }
-        // Verificação de login sem localStorage
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const cpfInput = document.getElementById('cpf').value;
             const senhaInput = document.getElementById('senha').value;
             const msg = document.getElementById('mensagem');
-
             if (cpfInput === usuarioADM.cpf && senhaInput === usuarioADM.senha) {
                 msg.style.color = 'green';
                 msg.textContent = 'Login bem-sucedido! Redirecionando...';
@@ -77,17 +70,11 @@ function verificarLogin(cpfDigitado, senhaDigitada) {
             }
         });
 
-
-    // Função para alternar o tema
     function toggleTheme() {
         const link = document.getElementById('theme-style');
         const currentTheme = link.getAttribute('href');
         const btn = document.getElementById('toggle-btn');
-        
-        // Alterna a classe no body
         document.body.classList.toggle('dark-theme');
-
-        // Alterna para o tema claro ou escuro
         if (currentTheme === 'LoginADMD.css') {
             link.setAttribute('href', 'LoginADML.css');
             btn.innerHTML = `
@@ -102,7 +89,7 @@ function verificarLogin(cpfDigitado, senhaDigitada) {
                     <path fill="url(#moonGradient)" d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 21a9 9 0 009-8.21z"/>
                 </svg>
             `;
-            localStorage.setItem('theme', 'light'); // Armazena a escolha de tema
+            localStorage.setItem('theme', 'light');
         } else {
             link.setAttribute('href', 'LoginADMD.css');
             btn.innerHTML = `
@@ -127,11 +114,10 @@ function verificarLogin(cpfDigitado, senhaDigitada) {
                     </g>
                 </svg>
             `;
-            localStorage.setItem('theme', 'dark'); // Armazena a escolha de tema
+            localStorage.setItem('theme', 'dark');
         }
     }
 
-    // Verifica o tema preferido ao carregar a página
     window.onload = () => {
         const savedTheme = localStorage.getItem('theme');
         const link = document.getElementById('theme-style');
@@ -178,6 +164,4 @@ function verificarLogin(cpfDigitado, senhaDigitada) {
         }
     };
 </script>
-
-
 </html>

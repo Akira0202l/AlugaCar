@@ -21,14 +21,11 @@
             <a href="Site.html" class="btn-action link-action">Sair</a>
         </div>
     </header>
-
     <h1 id="boas-vindas"></h1>
-
     <div class="box-search centralizar">
         <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
         <button onclick="searchData()" class="btn btn-primary">🔍</button>
     </div>
-
     <div class="m-5">
         <table class="table text-white table-bg" id="user-table">
             <thead>
@@ -42,29 +39,22 @@
                 </tr>
             </thead>
             <tbody id="user-body">
-                <!-- Dados inseridos via JavaScript -->
             </tbody>
         </table>
     </div>
-
-    <!-- Botão para alternar tema -->
     <button onclick="toggleTheme()" id="toggle-btn" title="Trocar tema">🌞</button>
 
     <script>
         const boasVindas = document.getElementById("boas-vindas");
-
-        // Carrega e mostra dados do localStorage
         function loadUsers(filter = "") {
             const tbody = document.getElementById("user-body");
             tbody.innerHTML = "";
             const users = JSON.parse(localStorage.getItem("usuarios") || "[]");
-
             if (users.length === 0) {
                 boasVindas.innerText = "Nenhum usuário cadastrado.";
             } else {
                 boasVindas.innerText = "Bem-vindo!";
             }
-
             users.forEach((user, index) => {
                 if (filter && !user.nome.toLowerCase().includes(filter.toLowerCase())) return;
 
@@ -112,7 +102,6 @@
             }
         }
 
-        // Tema
         function toggleTheme() {
             const link = document.getElementById("theme-style");
             const currentTheme = link.getAttribute("href");
@@ -149,7 +138,6 @@
             }
         }
 
-        // Tema ao carregar
         window.onload = () => {
             const savedTheme = localStorage.getItem("theme");
             const link = document.getElementById("theme-style");

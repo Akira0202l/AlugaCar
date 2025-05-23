@@ -1,35 +1,30 @@
-/* Estilo geral do corpo da página */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(45deg, #dbe9f4, #f2f4f8); /* tons mais claros */
+    background-image: linear-gradient(45deg, #dbe9f4, #f2f4f8);
 }
 
-/* Estilo da caixa do formulário */
 .box {
     color: #333;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.95); /* fundo claro com leve transparência */
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 80px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* leve sombra para destaque */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo do título do formulário */
 legend {
-    color: #333; /* vermelho mais suave */
+    color: #333;
     font-size: 34px;
     padding: 10px;
 }
 
-/* Estilo dos campos de entrada de dados */
 .inputBox {
     position: relative;
 }
 
-/* Estilo dos inputs (campos de texto) */
 .inputUser {
     background: none;
     border: none;
@@ -41,7 +36,6 @@ legend {
     letter-spacing: 2px;
 }
 
-/* Estilo do label associado a cada input */
 .labelInput {
     position: absolute;
     top: 0;
@@ -51,7 +45,6 @@ legend {
     color: #888;
 }
 
-/* Quando o input recebe foco ou é preenchido, o label sobe */
 .inputUser:focus ~ .labelInput,
 .inputUser:valid ~ .labelInput {
     top: -20px;
@@ -59,7 +52,6 @@ legend {
     color: #b56c6c;
 }
 
-/* Estilo do botão de envio */
 #submit {
     background-color: transparent;
     border: 1px solid #666;
@@ -70,7 +62,6 @@ legend {
     font-size: 15px;
 }
 
-/* Efeito de hover */
 #submit:hover {
     background-color: #89a7b1;
     color: white;

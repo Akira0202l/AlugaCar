@@ -7,19 +7,15 @@
     <link id="theme-style" rel="stylesheet" href="LoginD.css">
     <title>Tela de login</title>
 </head>
-
 <body>
     <button onclick="toggleTheme()" id="toggle-btn" title="Trocar tema"></button>
-
     <header>
         <a href="LoginADM.html">
             <button class="buttonj">Trabalha Conosco?</button>
         </a>
     </header>
-
     <div class="box">
         <h1>Login</h1>
-
         <form id="formLogin">
             <input type="text" id="loginCpf" placeholder="CPF" required>
             <br><br>
@@ -28,22 +24,16 @@
             <input class="inputSubmit" type="submit" value="Enviar">
         </form>
     </div>
-
     <script>
         document.getElementById("formLogin").addEventListener("submit", function(e) {
             e.preventDefault();
 
             const cpfDigitado = document.getElementById("loginCpf").value.trim();
             const senhaDigitada = document.getElementById("loginSenha").value.trim();
-
-            // Pega lista de usuários do localStorage
             const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-            // Procura usuário com cpf e senha iguais
             const usuarioEncontrado = usuarios.find(user => user.cpf === cpfDigitado && user.senha === senhaDigitada);
 
             if (usuarioEncontrado) {
-                // Aqui você pode salvar info de sessão, por exemplo:
                 localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
                 window.location.href = "PaginaUsuario.html";
             } else {
@@ -51,12 +41,10 @@
             }
         });
 
-        // Funções do tema (igual ao seu original)
         function toggleTheme() {
             const link = document.getElementById('theme-style');
             const currentTheme = link.getAttribute('href');
             const btn = document.getElementById('toggle-btn');
-
             document.body.classList.toggle('dark-theme');
 
             if (currentTheme === 'LoginD.css') {
@@ -121,6 +109,7 @@
                 btn.innerHTML = getSunIcon();
             }
         };
+
     </script>
 </body>
 </html>
